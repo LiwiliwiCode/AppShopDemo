@@ -2,4 +2,9 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--主界面 tab drawablePadding-->
+    <dimen name="d_main_tab_textsize">14sp</dimen>
+    <dimen name="d_main_tab_drawablepadding">2dp</dimen>
+
 </resources>

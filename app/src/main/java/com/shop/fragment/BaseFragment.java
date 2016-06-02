@@ -1,80 +1,60 @@
 package com.shop.fragment;
 
 import android.content.Context;
-import android.net.Uri;
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
+import android.util.Log;
 
-import shop.com.appshopdemo.R;
+public abstract class BaseFragment extends Fragment {
 
-public class BaseFragment extends Fragment {
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final String TAG = "BaseFragment";
+    protected static final String ARG_PARAM1 = "param1";
 
-    private String mParam1;
-    private String mParam2;
+    protected String mParam1;
 
     /**
-     * Fragment 是否可见标识
+     * 记录是否是第一次初始化
      */
-    private boolean isVisible ;
+    protected boolean isFirstInit = true ;
 
     private OnFragmentInteractionListener mListener;
 
     public BaseFragment() {
     }
 
-    public static BaseFragment newInstance(String param1, String param2) {
-        BaseFragment fragment = new BaseFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-
-        if(getUserVisibleHint()){
-            isVisible = true;
-            onShowVisible();
-        }else{
-            isVisible = false;
-            onHideInvisible();
-        }
-    }
-
-    protected void onShowVisible(){
-        //TODO
-    }
-
-    protected void onHideInvisible(){
-        //TODO
+        Log.d(TAG, "setUserVisibleHint: ");
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public void onResume() {
+        super.onResume();
+        Log.d(TAG, "onResume: ");
+            if(getUserVisibleHint()) {
+                if (isFirstInit) {
+                    //初次加载数据
+                    onFirstObtainData();
+                    isFirstInit = false;
+                } else {
+                    onShownvisible();
+                }
+            }
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_base, container, false);
+    public void onPause() {
+        super.onPause();
+        Log.d(TAG, "onPause: ");
     }
 
-    public void onButtonPressed(Uri uri) {
+    public abstract void onFirstObtainData();
+
+    public abstract void onShownvisible();
+
+    public void onButtonPressed(String msg) {
         if (mListener != null) {
-            mListener.onFragmentInteraction(uri);
+            mListener.onFragmentInteraction(msg);
         }
     }
 
@@ -96,6 +76,6 @@ public class BaseFragment extends Fragment {
     }
 
     public interface OnFragmentInteractionListener {
-        void onFragmentInteraction(Uri uri);
+        void onFragmentInteraction(String itemName);
     }
 }
