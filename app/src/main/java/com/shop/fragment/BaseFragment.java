@@ -2,7 +2,6 @@ package com.shop.fragment;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 
 public abstract class BaseFragment extends Fragment {
 
@@ -22,22 +21,16 @@ public abstract class BaseFragment extends Fragment {
     }
 
     @Override
-    public void setUserVisibleHint(boolean isVisibleToUser) {
-        super.setUserVisibleHint(isVisibleToUser);
-        Log.d(TAG, "setUserVisibleHint: ");
-    }
-
-    @Override
     public void onResume() {
         super.onResume();
-        Log.d(TAG, "onResume: ");
+
             if(getUserVisibleHint()) {
                 if (isFirstInit) {
                     //初次加载数据
                     onFirstObtainData();
                     isFirstInit = false;
                 } else {
-                    onShownvisible();
+                    onShowVisible();
                 }
             }
     }
@@ -45,12 +38,12 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void onPause() {
         super.onPause();
-        Log.d(TAG, "onPause: ");
+        //TODO
     }
 
     public abstract void onFirstObtainData();
 
-    public abstract void onShownvisible();
+    public abstract void onShowVisible();
 
     public void onButtonPressed(String msg) {
         if (mListener != null) {

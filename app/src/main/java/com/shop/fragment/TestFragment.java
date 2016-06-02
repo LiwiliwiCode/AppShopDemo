@@ -41,7 +41,7 @@ public class TestFragment extends BaseFragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate: ");
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
         }
@@ -72,8 +72,8 @@ public class TestFragment extends BaseFragment {
     }
 
     @Override
-    public void onShownvisible() {
-        Log.d(TAG, "onHideInvisible: mParam1"+mParam1);
+    public void onShowVisible() {
+
         mFragmentTv.setText(mParam1);
         onButtonPressed(mParam1);
     }
