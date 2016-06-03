@@ -1,0 +1,106 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#d2d4d6"
+   >
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+>
+  <LinearLayout
+      android:layout_width="match_parent"
+      android:layout_height="50dp"
+      android:orientation="horizontal">
+
+      <Spinner
+          android:id="@+id/id_shopmall_sp"
+          android:layout_width="0dp"
+          android:layout_weight="0.3"
+          android:layout_height="match_parent"></Spinner>
+      <EditText
+          android:id="@+id/id_shopmall_search_et"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:layout_marginLeft="1dp"
+          android:drawableRight="@mipmap/ic_launcher"/>
+  </LinearLayout>
+    
+    <android.support.v4.view.ViewPager
+        android:id="@+id/id_shopmall_vp"
+        android:layout_width="match_parent"
+        android:background="@android:color/white"
+        android:layout_height="200dp">
+    </android.support.v4.view.ViewPager>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+      >
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            >
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:text="xxxxxxxxxxxxx"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:background="@android:color/white"
+                android:drawableLeft="@mipmap/ic_launcher"/>
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="1px"
+                android:text="xxxxxxxxxxxxx"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:background="@android:color/white"
+                android:drawableLeft="@mipmap/ic_launcher"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1px"
+            >
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:background="@android:color/white"
+                android:layout_weight="1"
+                android:text="xxxxxxxxxxxxx"
+                android:gravity="center"
+                android:textSize="14sp"
+                android:drawableLeft="@mipmap/ic_launcher"/>
+
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="1px"
+                android:gravity="center"
+                android:text="xxxxxxxxxxxxx"
+                android:textSize="14sp"
+                android:background="@android:color/white"
+                android:drawableLeft="@mipmap/ic_launcher"/>
+
+        </TableRow>
+    </TableLayout>
+
+    <LinearLayout
+        android:id="@+id/id_shopmall_contentdesc_ly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+    </LinearLayout>
+
+</LinearLayout>
+</ScrollView>

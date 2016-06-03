@@ -6,7 +6,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.shop.fragment.BaseFragment;
-import com.shop.fragment.TestFragment;
+import com.shop.fragment.ShopCartFragment;
+import com.shop.fragment.ShopMallFragment;
+import com.shop.fragment.UserCenterFragment;
 
 import shop.com.appshopdemo.R;
 
@@ -33,7 +35,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
         mShopCartTv = (TextView) findViewById(R.id.id_main_shopcart_tab_tv);
         mUserTv = (TextView) findViewById(R.id.id_main_user_tab_tv);
 
-        mTestFragment1 = TestFragment.newInstance(getString(R.string.str_main_shopmall_tab_name));
+        mTestFragment1 = ShopMallFragment.newInstance(getString(R.string.str_main_shopmall_tab_name));
         getSupportFragmentManager().beginTransaction().replace(R.id.id_main_content,mTestFragment1).commit();
     }
 
@@ -52,17 +54,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener ,
         {
             case  R.id.id_main_shopmall_tab_tv:
                 if(mTestFragment1 == null)
-                mTestFragment1 = TestFragment.newInstance(getString(R.string.str_main_shopmall_tab_name));
+                mTestFragment1 = ShopMallFragment.newInstance(getString(R.string.str_main_shopmall_tab_name));
                 getSupportFragmentManager().beginTransaction().replace(R.id.id_main_content,mTestFragment1).commit();
                 break;
             case  R.id.id_main_shopcart_tab_tv:
                 if(mTestFragment2 == null)
-                mTestFragment2 = TestFragment.newInstance(getString(R.string.str_main_shopcart_tab_name));
+                mTestFragment2 = ShopCartFragment.newInstance(getString(R.string.str_main_shopcart_tab_name));
                 getSupportFragmentManager().beginTransaction().replace(R.id.id_main_content,mTestFragment2).commit();
                 break;
             case  R.id.id_main_user_tab_tv:
                 if(mTestFragment3 == null)
-                mTestFragment3 = TestFragment.newInstance(getString(R.string.str_main_user_tab_name));
+                mTestFragment3 = UserCenterFragment.newInstance(getString(R.string.str_main_user_tab_name));
                 getSupportFragmentManager().beginTransaction().replace(R.id.id_main_content,mTestFragment3).commit();
                 break;
 
